@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="icon" href=" /assets/icon/pinkoc.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/shopcart.css" />
+    <script src="/js/shopcart.js"></script>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+    <div class="container">
+      <h2>Shopping Cart</h2>
+      <div class="cart">
+        <div class="products"></div>
+        <div class="cart-total">
+          <h2 class="title-cartotal">Summary</h2>
+          <p>
+            <span>Tổng giá tiền</span>
+            <span></span>
+          </p>
+
+          <a href="/shipInfo">Proceed to Checkout</a>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="backtohomepage">
+      <a href="/home" class="">Quay trở lại Pinkoc Homepage</a>
+    </div> -->
+
+    <%- include('../partials/footer') %>
+    <script
+      src="https://kit.fontawesome.com/b25957ae4f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/js/header.js"></script>
+  </body>
+</html>

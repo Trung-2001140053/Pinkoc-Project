@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+    <link rel="icon" href=" /assets/icon/pinkoc.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/product.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <%- include('../partials/header') %> <% let arrayImage =
+    data.productInformation.listImage.split(",") %>
+    <!--  -->
+    <div class="productPage_container" id="<%= data.productInformation.id %>">
+      <h1 class="categoryName">Category</h1>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <% if(arrayImage.length <= 1){ %>
+          <div class="swiper-slide">
+            <img src="<%= arrayImage[0] %>" alt="" />
+          </div>
+          <% } else { %> <% arrayImage.forEach(e => { %>
+          <div class="swiper-slide">
+            <img src="<%= e %>" alt="" />
+          </div>
+
+          <% }); %> <% } %>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+      <div class="about_product">
+        <h1><%= data.productInformation.name %></h1>
+
+        <div class="product_detail">
+          <div class="description">
+            <h2>Mô tả</h2>
+            <p><%= data.productInformation.description %></p>
+          </div>
+          <% if(data.productInformation.color != null &&
+          data.productInformation.color !== ""){ %> <% let arrayColor =
+          data.productInformation.color.split(", ") %> <% if(arrayColor[0] != ""
+          || arrayColor.length >= 1){ %>
+          <div class="color">
+            <h2>Màu sắc</h2>
+            <% arrayColor.forEach(e => { %>
+            <span>/<%= e %></span>
+            <% }); %>
+          </div>
+          <% } %> <% } %>
+          <!--  -->
+          <% if(data.productInformation.size != null &&
+          data.productInformation.size !== ""){ %>
+          <!--  -->
+          <% let arraySize = data.productInformation.size.split(", ") %> <%
+          if(arraySize[0] != "" || arraySize.length >= 1){ %>
+          <div class="size">
+            <h2>Kích cỡ</h2>
+            <% arraySize.forEach(e => { %>
+            <span><%= e %></span>
+            <% }); %>
+          </div>
+          <% } %> <% } %>
+          <div class="price">
+            <h2>Giá tiền</h2>
+            <p>
+              <b><%= data.productInformation.price %></b>
+              <u>đ</u>
+            </p>
+          </div>
+
+          <div class="add_cart">
+            <button id="addToCart">Thêm vào giỏ hàng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="addSuccess">
+      <i class="fa-solid fa-check"></i>
+      <h2>Thêm thành công</h2>
+    </div>
+    <%- include('../partials/footer') %>
+    <script
+      src="https://kit.fontawesome.com/b25957ae4f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/header.js"></script>
+    <script type="module" src="/js/product.js"></script>
+  </body>
+</html>
